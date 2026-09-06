@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Administration | ComoreTech</title>
+
+    <meta
+        name="description"
+        content="Espace d'administration de ComoreTech."
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="container nav-container">
+
+            <a href="index.html" class="logo">
+
+                <img
+                    src="images/logo.jpg"
+                    alt="Logo ComoreTech"
+                >
+
+                <span>
+                    Comore<span>Tech</span>
+                </span>
+
+            </a>
+
+
+            <nav class="nav-links">
+
+                <a href="index.html">
+                    Accueil
+                </a>
+
+                <a href="services.html">
+                    Services
+                </a>
+
+                <a href="apropos.html">
+                    À propos
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+                <a
+                    href="commande.html"
+                    class="nav-command"
+                >
+                    Commander
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= ADMIN ================= -->
+
+    <main class="admin-page">
+
+
+        <!-- HERO -->
+
+        <section class="page-hero">
+
+            <div class="container">
+
+                <span class="hero-badge">
+                    ADMINISTRATION
+                </span>
+
+                <h1>
+                    Tableau de
+                    <span>bord.</span>
+                </h1>
+
+                <p>
+                    Consulte et gère les demandes reçues
+                    depuis le formulaire ComoreTech.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= TABLEAU DE BORD ================= -->
+
+        <section class="admin-section">
+
+            <div class="container">
+
+
+                <!-- STATISTIQUES -->
+
+                <div class="admin-stats">
+
+
+                    <div class="admin-stat-card">
+
+                        <span>
+                            TOTAL
+                        </span>
+
+                        <strong id="adminTotal">
+                            0
+                        </strong>
+
+                        <small>
+                            commandes
+                        </small>
+
+                    </div>
+
+
+                    <div class="admin-stat-card">
+
+                        <span>
+                            NOUVELLES
+                        </span>
+
+                        <strong id="adminNouvelles">
+                            0
+                        </strong>
+
+                        <small>
+                            à traiter
+                        </small>
+
+                    </div>
+
+
+                    <div class="admin-stat-card">
+
+                        <span>
+                            EN COURS
+                        </span>
+
+                        <strong id="adminEnCours">
+                            0
+                        </strong>
+
+                        <small>
+                            projets
+                        </small>
+
+                    </div>
+
+
+                    <div class="admin-stat-card">
+
+                        <span>
+                            TERMINÉES
+                        </span>
+
+                        <strong id="adminTerminees">
+                            0
+                        </strong>
+
+                        <small>
+                            projets
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- BARRE D'ACTIONS -->
+
+                <div class="admin-toolbar">
+
+                    <div>
+
+                        <span class="section-label">
+                            COMMANDES
+                        </span>
+
+                        <h2>
+                            Demandes reçues
+                        </h2>
+
+                    </div>
+
+
+                    <div class="admin-actions">
+
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                            id="exportButton"
+                        >
+                            ↓ Exporter
+                        </button>
+
+                        <button
+                            type="button"
+                            class="btn btn-danger"
+                            id="deleteAllButton"
+                        >
+                            Tout supprimer
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RECHERCHE -->
+
+                <div class="admin-search">
+
+                    <input
+                        type="search"
+                        id="adminSearch"
+                        placeholder="Rechercher une commande..."
+                    >
+
+                </div>
+
+
+                <!-- LISTE -->
+
+                <div
+                    class="admin-orders"
+                    id="adminOrders"
+                >
+                </div>
+
+
+                <!-- AUCUNE COMMANDE -->
+
+                <div
+                    class="admin-empty"
+                    id="adminEmpty"
+                >
+
+                    <div class="admin-empty-icon">
+                        📭
+                    </div>
+
+                    <h3>
+                        Aucune commande
+                    </h3>
+
+                    <p>
+                        Les demandes envoyées depuis
+                        la page de commande apparaîtront ici.
+                    </p>
+
+                    <a
+                        href="commande.html"
+                        class="btn btn-primary"
+                    >
+                        Faire une demande test →
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="container footer-grid">
+
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="logo">
+
+                    <img
+                        src="images/logo.jpg"
+                        alt="Logo ComoreTech"
+                    >
+
+                    <span>
+                        Comore<span>Tech</span>
+                    </span>
+
+                </a>
+
+                <p>
+                    Des solutions numériques modernes
+                    pour donner vie à tes idées.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Navigation
+                </h3>
+
+                <a href="index.html">
+                    Accueil
+                </a>
+
+                <a href="services.html">
+                    Services
+                </a>
+
+                <a href="apropos.html">
+                    À propos
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Administration
+                </h3>
+
+                <a href="admin.html">
+                    Tableau de bord
+                </a>
+
+                <a href="commande.html">
+                    Nouvelle commande
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    ComoreTech
+                </h3>
+
+                <p>
+                    Créativité, technologie
+                    et solutions numériques.
+                </p>
+
+                <a
+                    href="services.html"
+                    class="btn btn-primary"
+                >
+                    Nos services
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <div class="container">
+
+                <p>
+                    © 2026 ComoreTech — Tous droits réservés.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= SCRIPT ADMIN ================= -->
+
+    <script src="script.js"></script>
+
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const ordersContainer =
+                document.getElementById("adminOrders");
+
+            const emptyContainer =
+                document.getElementById("adminEmpty");
+
+            const searchInput =
+                document.getElementById("adminSearch");
+
+
+            function afficherCommandesAdmin() {
+
+                const commandes =
+                    recupererCommandes();
+
+                const recherche =
+                    searchInput.value
+                        .toLowerCase()
+                        .trim();
+
+
+                let commandesFiltrees =
+                    commandes.filter(commande => {
+
+                        const texte = `
+                            ${commande.id}
+                            ${commande.service}
+                            ${commande.nom}
+                            ${commande.whatsapp}
+                            ${commande.email}
+                            ${commande.description}
+                            ${commande.statut}
+                        `.toLowerCase();
+
+                        return texte.includes(recherche);
+
+                    });
+
+
+                ordersContainer.innerHTML = "";
+
+
+                if (commandesFiltrees.length === 0) {
+
+                    emptyContainer.style.display = "block";
+
+                    mettreAJourStatistiques();
+
+                    return;
+
+                }
+
+
+                emptyContainer.style.display = "none";
+
+
+                commandesFiltrees
+                    .slice()
+                    .reverse()
+                    .forEach(commande => {
+
+                        const article =
+                            document.createElement("article");
+
+                        article.className =
+                            "admin-order-card";
+
+
+                        const statutClass =
+                            commande.statut
+                                .toLowerCase()
+                                .replaceAll(" ", "-");
+
+
+                        article.innerHTML = `
+
+                            <div class="order-top">
+
+                                <div>
+
+                                    <span class="order-id">
+                                        ${echapperHTML(commande.id)}
+                                    </span>
+
+                                    <h3>
+                                        ${echapperHTML(commande.nom)}
+                                    </h3>
+
+                                </div>
+
+                                <span class="order-status ${statutClass}">
+                                    ${echapperHTML(commande.statut)}
+                                </span>
+
+                            </div>
+
+
+                            <div class="order-details">
+
+                                <div>
+                                    <strong>Service</strong>
+                                    <span>
+                                        ${echapperHTML(commande.service)}
+                                    </span>
+                                </div>
+
+                                <div>
+                                    <strong>WhatsApp</strong>
+                                    <span>
+                                        ${echapperHTML(commande.whatsapp)}
+                                    </span>
+                                </div>
+
+                                <div>
+                                    <strong>E-mail</strong>
+                                    <span>
+                                        ${echapperHTML(commande.email)}
+                                    </span>
+                                </div>
+
+                                <div>
+                                    <strong>Date souhaitée</strong>
+                                    <span>
+                                        ${formaterDate(commande.date)}
+                                    </span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="order-description">
+
+                                <strong>
+                                    Description
+                                </strong>
+
+                                <p>
+                                    ${echapperHTML(commande.description)}
+                                </p>
+
+                            </div>
+
+
+                            <div class="order-bottom">
+
+                                <small>
+                                    Reçue le
+                                    ${echapperHTML(commande.createdAt)}
+                                </small>
+
+
+                                <div class="order-actions">
+
+                                    <select
+                                        class="status-select"
+                                        data-id="${echapperHTML(commande.id)}"
+                                    >
+
+                                        <option
+                                            value="Nouvelle"
+                                            ${commande.statut === "Nouvelle" ? "selected" : ""}
+                                        >
+                                            Nouvelle
+                                        </option>
+
+                                        <option
+                                            value="En cours"
+                                            ${commande.statut === "En cours" ? "selected" : ""}
+                                        >
+                                            En cours
+                                        </option>
+
+                                        <option
+                                            value="Terminée"
+                                            ${commande.statut === "Terminée" ? "selected" : ""}
+                                        >
+                                            Terminée
+                                        </option>
+
+                                    </select>
+
+
+                                    <button
+                                        type="button"
+                                        class="btn btn-small btn-copy"
+                                        data-copy="${echapperHTML(commande.whatsapp)}"
+                                    >
+                                        Copier
+                                    </button>
+
+
+                                    <button
+                                        type="button"
+                                        class="btn btn-small btn-danger btn-delete"
+                                        data-id="${echapperHTML(commande.id)}"
+                                    >
+                                        Supprimer
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        `;
+
+
+                        ordersContainer.appendChild(article);
+
+                    });
+
+
+                ajouterEvenementsCommandes();
+
+                mettreAJourStatistiques();
+
+            }
+
+
+            function mettreAJourStatistiques() {
+
+                const stats =
+                    obtenirStatistiques();
+
+
+                document.getElementById("adminTotal")
+                    .textContent = stats.total;
+
+                document.getElementById("adminNouvelles")
+                    .textContent = stats.nouvelles;
+
+                document.getElementById("adminEnCours")
+                    .textContent = stats.enCours;
+
+                document.getElementById("adminTerminees")
+                    .textContent = stats.terminees;
+
+            }
+
+
+            function ajouterEvenementsCommandes() {
+
+                document
+                    .querySelectorAll(".status-select")
+                    .forEach(select => {
+
+                        select.addEventListener(
+                            "change",
+                            event => {
+
+                                const id =
+                                    event.target.dataset.id;
+
+                                const statut =
+                                    event.target.value;
+
+                                modifierStatut(
+                                    id,
+                                    statut
+                                );
+
+                            }
+                        );
+
+                    });
+
+
+                document
+                    .querySelectorAll(".btn-delete")
+                    .forEach(button => {
+
+                        button.addEventListener(
+                            "click",
+                            () => {
+
+                                const id =
+                                    button.dataset.id;
+
+                                const confirmation =
+                                    confirm(
+                                        "Supprimer cette commande ?"
+                                    );
+
+                                if (!confirmation) {
+                                    return;
+                                }
+
+                                supprimerCommande(id);
+
+                            }
+                        );
+
+                    });
+
+
+                document
+                    .querySelectorAll(".btn-copy")
+                    .forEach(button => {
+
+                        button.addEventListener(
+                            "click",
+                            () => {
+
+                                copierTexte(
+                                    button.dataset.copy
+                                );
+
+                            }
+                        );
+
+                    });
+
+            }
+
+
+            searchInput.addEventListener(
+                "input",
+                afficherCommandesAdmin
+            );
+
+
+            document
+                .getElementById("exportButton")
+                .addEventListener(
+                    "click",
+                    exporterCommandes
+                );
+
+
+            document
+                .getElementById("deleteAllButton")
+                .addEventListener(
+                    "click",
+                    supprimerToutesLesCommandes
+                );
+
+
+            window.afficherCommandesAdmin =
+                afficherCommandesAdmin;
+
+
+            afficherCommandesAdmin();
+
+        });
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact | ComoreTech</title>
+
+    <meta
+        name="description"
+        content="Contactez ComoreTech pour vos projets numériques."
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="container nav-container">
+
+            <a href="index.html" class="logo">
+
+                <img
+                    src="images/logo.jpg"
+                    alt="Logo ComoreTech"
+                >
+
+                <span>
+                    Comore<span>Tech</span>
+                </span>
+
+            </a>
+
+
+            <nav class="nav-links">
+
+                <a href="index.html">
+                    Accueil
+                </a>
+
+                <a href="services.html">
+                    Services
+                </a>
+
+                <a href="apropos.html">
+                    À propos
+                </a>
+
+                <a href="contact.html" class="active">
+                    Contact
+                </a>
+
+                <a
+                    href="commande.html"
+                    class="nav-command"
+                >
+                    Commander
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= CONTENU ================= -->
+
+    <main>
+
+        <!-- HERO -->
+
+        <section class="page-hero">
+
+            <div class="container">
+
+                <span class="hero-badge">
+                    CONTACT
+                </span>
+
+                <h1>
+                    Parlons de ton
+                    <span>projet.</span>
+                </h1>
+
+                <p>
+                    Une question, une idée ou un projet particulier ?
+                    N'hésite pas à nous contacter.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CONTACT ================= -->
+
+        <section class="contact-section">
+
+            <div class="container contact-grid">
+
+
+                <!-- INFORMATIONS -->
+
+                <div class="contact-info">
+
+                    <span class="section-label">
+                        RESTONS EN CONTACT
+                    </span>
+
+                    <h2>
+                        Une question ?
+                        Parlons-en.
+                    </h2>
+
+                    <p>
+                        Si tu souhaites obtenir des informations
+                        avant de commander, tu peux nous contacter
+                        directement.
+                    </p>
+
+
+                    <!-- WHATSAPP -->
+
+                    <div class="contact-card">
+
+                        <div class="contact-icon">
+                            💬
+                        </div>
+
+                        <div>
+
+                            <span>
+                                WhatsApp
+                            </span>
+
+                            <h3>
+                                Contact direct
+                            </h3>
+
+                            <p>
+                                Écris-nous sur WhatsApp pour
+                                discuter de ton projet.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="contact-card">
+
+                        <div class="contact-icon">
+                            ✉️
+                        </div>
+
+                        <div>
+
+                            <span>
+                                E-mail
+                            </span>
+
+                            <h3>
+                                Notre adresse
+                            </h3>
+
+                            <p>
+                                Une adresse e-mail professionnelle
+                                pourra être ajoutée ici.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DISPONIBILITÉ -->
+
+                    <div class="contact-card">
+
+                        <div class="contact-icon">
+                            ⚡
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Disponibilité
+                            </span>
+
+                            <h3>
+                                Projets numériques
+                            </h3>
+
+                            <p>
+                                Création web, montage vidéo,
+                                design et solutions numériques.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- FORMULAIRE CONTACT -->
+
+                <div class="contact-form-container">
+
+                    <div class="form-header">
+
+                        <span class="hero-badge">
+                            MESSAGE
+                        </span>
+
+                        <h2>
+                            Écris-nous
+                        </h2>
+
+                        <p>
+                            Présente-nous rapidement ta demande.
+                        </p>
+
+                    </div>
+
+
+                    <form id="contactForm">
+
+
+                        <!-- NOM -->
+
+                        <div class="form-group">
+
+                            <label for="contactNom">
+                                Nom ou prénom *
+                            </label>
+
+                            <input
+                                type="text"
+                                id="contactNom"
+                                name="nom"
+                                placeholder="Ex : Ibrahim"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- EMAIL -->
+
+                        <div class="form-group">
+
+                            <label for="contactEmail">
+                                Adresse e-mail *
+                            </label>
+
+                            <input
+                                type="email"
+                                id="contactEmail"
+                                name="email"
+                                placeholder="Ex : exemple@email.com"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- SUJET -->
+
+                        <div class="form-group">
+
+                            <label for="contactSujet">
+                                Sujet *
+                            </label>
+
+                            <input
+                                type="text"
+                                id="contactSujet"
+                                name="sujet"
+                                placeholder="Ex : Création d'un site web"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- MESSAGE -->
+
+                        <div class="form-group">
+
+                            <label for="contactMessage">
+                                Message *
+                            </label>
+
+                            <textarea
+                                id="contactMessage"
+                                name="message"
+                                rows="7"
+                                placeholder="Écris ton message ici..."
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <!-- BOUTON -->
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary form-submit"
+                        >
+                            Envoyer le message →
+                        </button>
+
+
+                        <p class="form-security">
+                            🔒 Tes informations restent utilisées
+                            uniquement pour traiter ta demande.
+                        </p>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CTA ================= -->
+
+        <section class="cta-section">
+
+            <div class="container">
+
+                <div class="cta-box">
+
+                    <span class="hero-badge">
+                        PRÊT À COMMENCER ?
+                    </span>
+
+                    <h2>
+                        Passe directement ta commande.
+                    </h2>
+
+                    <p>
+                        Si tu sais déjà ce dont tu as besoin,
+                        tu peux nous présenter ton projet directement.
+                    </p>
+
+                    <a
+                        href="commande.html"
+                        class="btn btn-primary"
+                    >
+                        Commander maintenant →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="container footer-grid">
+
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="logo">
+
+                    <img
+                        src="images/logo.jpg"
+                        alt="Logo ComoreTech"
+                    >
+
+                    <span>
+                        Comore<span>Tech</span>
+                    </span>
+
+                </a>
+
+                <p>
+                    Des solutions numériques modernes
+                    pour donner vie à tes idées.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Navigation
+                </h3>
+
+                <a href="index.html">
+                    Accueil
+                </a>
+
+                <a href="services.html">
+                    Services
+                </a>
+
+                <a href="apropos.html">
+                    À propos
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Services
+                </h3>
+
+                <a href="commande.html?service=site">
+                    Sites web
+                </a>
+
+                <a href="commande.html?service=video">
+                    Montage vidéo
+                </a>
+
+                <a href="commande.html?service=design">
+                    Design graphique
+                </a>
+
+                <a href="commande.html?service=digital">
+                    Solutions numériques
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Projet
+                </h3>
+
+                <p>
+                    Une idée ? Construisons-la.
+                </p>
+
+                <a
+                    href="commande.html"
+                    class="btn btn-primary"
+                >
+                    Commander
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <div class="container">
+
+                <p>
+                    © 2026 ComoreTech — Tous droits réservés.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
