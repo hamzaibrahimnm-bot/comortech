@@ -225,21 +225,10 @@ async function envoyerCommande(e) {
                 method: "POST",
 
                 headers: {
-
-                    "Content-Type":
-                        "application/json",
-
-                    "apikey":
-                        SUPABASE_KEY,
-
-                    "Authorization":
-                        "Bearer " +
-                        SUPABASE_KEY,
-
-                    "Prefer":
-                        "return=representation"
-
-                },
+  "Content-Type": "application/json",
+  "apikey": SUPABASE_KEY,
+  "Prefer": "return=representation"
+},
 
                 body:
                     JSON.stringify(commande)
