@@ -3,793 +3,226 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>ComoreTech — Administration</title>
-
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #07111f;
-      color: #ffffff;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    .card {
-      background: #0d1b2a;
-      border: 1px solid #21344a;
-      border-radius: 18px;
-      padding: 22px;
-      margin-bottom: 20px;
-    }
-
-    h1,
-    h2 {
-      margin-top: 0;
-    }
-
-    .description {
-      color: #9fb0c2;
-      line-height: 1.6;
-    }
-
-    label {
-      display: block;
-      margin-top: 15px;
-      margin-bottom: 7px;
-      font-weight: bold;
-    }
-
-    input {
-      width: 100%;
-      padding: 14px;
-      border-radius: 10px;
-      border: 1px solid #30465e;
-      background: #081421;
-      color: white;
-      font-size: 16px;
-      outline: none;
-    }
-
-    input:focus {
-      border-color: #18a66a;
-    }
-
-    button {
-      border: none;
-      border-radius: 10px;
-      padding: 13px 18px;
-      margin-top: 15px;
-      background: #18a66a;
-      color: white;
-      font-size: 15px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    button:hover {
-      opacity: 0.9;
-    }
-
-    .logout {
-      background: #24384e;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    .top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .message {
-      margin-top: 15px;
-    }
-
-    .error {
-      color: #ff8585;
-    }
-
-    .success {
-      color: #6ee7b7;
-    }
-
-    .order {
-      background: #091624;
-      border: 1px solid #263d55;
-      border-radius: 14px;
-      padding: 17px;
-      margin-top: 15px;
-    }
-
-    .order-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .reference {
-      font-size: 17px;
-      font-weight: bold;
-    }
-
-    .status {
-      display: inline-block;
-      padding: 6px 10px;
-      border-radius: 50px;
-      background: #183a31;
-      color: #6ee7b7;
-      font-size: 13px;
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-top: 15px;
-    }
-
-    .info {
-      background: #0d1b2a;
-      border-radius: 10px;
-      padding: 12px;
-    }
-
-    .info strong {
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    .muted {
-      color: #9fb0c2;
-    }
-
-    .search {
-      margin-top: 10px;
-    }
-
-    @media (max-width: 650px) {
-      .container {
-        padding: 12px;
-      }
-
-      .card {
-        padding: 17px;
-      }
-
-      .info-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .top {
-        align-items: flex-start;
-      }
-
-      .logout {
-        width: 100%;
-      }
-    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,sans-serif;background:#07111f;color:#fff}
+    .container{width:100%;max-width:1100px;margin:auto;padding:20px}
+    .card{background:#0d1b2a;border:1px solid #21344a;border-radius:18px;padding:22px;margin-bottom:20px}
+    h1,h2{margin-top:0}.description,.muted{color:#9fb0c2;line-height:1.6}
+    label{display:block;margin-top:15px;margin-bottom:7px;font-weight:bold}
+    input{width:100%;padding:14px;border-radius:10px;border:1px solid #30465e;background:#081421;color:#fff;font-size:16px;outline:none;margin-bottom:8px}
+    input:focus{border-color:#18a66a}
+    button{border:0;border-radius:10px;padding:13px 18px;margin-top:10px;background:#18a66a;color:#fff;font-size:15px;font-weight:bold;cursor:pointer}
+    button:hover{opacity:.9}.secondary{background:#24384e}.link-btn{background:none;color:#6eb6ff;padding:8px 0;margin-top:8px;text-decoration:underline}
+    .hidden{display:none}.top{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+    .message{margin-top:15px}.error{color:#ff8585}.success{color:#6ee7b7}
+    .order{background:#091624;border:1px solid #263d55;border-radius:14px;padding:17px;margin-top:15px}
+    .order-header{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+    .reference{font-size:17px;font-weight:bold}.status{display:inline-block;padding:6px 10px;border-radius:50px;background:#183a31;color:#6ee7b7;font-size:13px}
+    .info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:15px}.info{background:#0d1b2a;border-radius:10px;padding:12px}.info strong{display:block;margin-bottom:5px}.search{margin-top:10px}
+    @media(max-width:650px){.container{padding:12px}.card{padding:17px}.info-grid{grid-template-columns:1fr}.logout{width:100%}}
   </style>
 </head>
-
 <body>
+<div class="container">
 
-  <div class="container">
+  <section id="loginCard" class="card">
+    <h1>ComoreTech Admin</h1>
+    <p class="description">Connecte-toi avec ton compte administrateur.</p>
 
-    <!-- CONNEXION -->
-    <section id="loginCard" class="card">
-
-      <h1>ComoreTech Admin</h1>
-
-      <p class="description">
-        Connecte-toi avec ton compte administrateur pour consulter
-        les commandes reçues sur ComoreTech.
-      </p>
-
+    <div id="loginForm">
       <label for="email">Adresse e-mail</label>
-
-      <input
-        type="email"
-        id="email"
-        placeholder="Ton adresse e-mail"
-        autocomplete="username"
-      >
-
+      <input id="email" type="email" placeholder="Ton adresse e-mail" autocomplete="username">
       <label for="password">Mot de passe</label>
+      <input id="password" type="password" placeholder="Ton mot de passe" autocomplete="current-password">
+      <button id="loginBtn">Se connecter</button>
+      <br>
+      <button id="forgotBtn" class="link-btn">Mot de passe oublié ?</button>
+    </div>
 
-      <input
-        type="password"
-        id="password"
-        placeholder="Ton mot de passe"
-        autocomplete="current-password"
-      >
+    <div id="forgotForm" class="hidden">
+      <h2>Réinitialiser le mot de passe</h2>
+      <p class="description">Entre l'adresse e-mail de ton compte admin. Tu recevras un e-mail pour choisir un nouveau mot de passe.</p>
+      <label for="resetEmail">Adresse e-mail</label>
+      <input id="resetEmail" type="email" placeholder="Ton adresse e-mail" autocomplete="email">
+      <button id="resetBtn">Envoyer le lien de réinitialisation</button>
+      <br>
+      <button id="backLoginBtn" class="link-btn">← Retour à la connexion</button>
+    </div>
 
-      <button id="loginBtn">
-        Se connecter
-      </button>
+    <div id="loginMessage" class="message"></div>
+  </section>
 
-      <div id="loginMessage" class="message"></div>
+  <section id="newPasswordCard" class="card hidden">
+    <h1>Nouveau mot de passe</h1>
+    <p class="description">Choisis un nouveau mot de passe pour ton compte administrateur.</p>
+    <label for="newPassword">Nouveau mot de passe</label>
+    <input id="newPassword" type="password" placeholder="Nouveau mot de passe" autocomplete="new-password">
+    <label for="confirmPassword">Confirmer le mot de passe</label>
+    <input id="confirmPassword" type="password" placeholder="Confirmer le mot de passe" autocomplete="new-password">
+    <button id="updatePasswordBtn">Enregistrer le nouveau mot de passe</button>
+    <div id="passwordMessage" class="message"></div>
+  </section>
 
-    </section>
-
-
-    <!-- TABLEAU DE BORD -->
-    <section id="dashboard" class="hidden">
-
-      <div class="card">
-
-        <div class="top">
-
-          <div>
-            <h1>Tableau de bord</h1>
-
-            <p id="userInfo" class="muted"></p>
-          </div>
-
-          <button id="logoutBtn" class="logout">
-            Se déconnecter
-          </button>
-
-        </div>
-
+  <section id="dashboard" class="hidden">
+    <div class="card">
+      <div class="top">
+        <div><h1>Tableau de bord</h1><p id="userInfo" class="muted"></p></div>
+        <button id="logoutBtn" class="secondary">Se déconnecter</button>
       </div>
+    </div>
 
+    <div class="card">
+      <h2>📋 Commandes reçues</h2>
+      <p class="description">Les demandes envoyées depuis le site ComoreTech.</p>
+      <input id="search" class="search" type="search" placeholder="🔎 Rechercher une commande...">
+      <div id="orders"><p class="muted">Chargement des commandes...</p></div>
+    </div>
+  </section>
+</div>
 
-      <!-- COMMANDES -->
-      <div class="card">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const client = window.supabase.createClient(
+  "https://wevngkvljcctclilbnim.supabase.co",
+  "sb_publishable_Hu_ehmjppmxnDCn-7wbeTA_oCcyrdCV"
+);
 
-        <h2>📋 Commandes reçues</h2>
+let allOrders = [];
+const loginCard = document.getElementById("loginCard");
+const dashboard = document.getElementById("dashboard");
+const loginMessage = document.getElementById("loginMessage");
+const ordersBox = document.getElementById("orders");
 
-        <p class="description">
-          Voici les demandes envoyées depuis le site ComoreTech.
-        </p>
+function siteUrl(){ return window.location.origin + window.location.pathname; }
 
-        <input
-          id="search"
-          class="search"
-          type="search"
-          placeholder="🔎 Rechercher une commande..."
-        >
+function showMessage(element, text, type=""){
+  element.className = "message " + type;
+  element.textContent = text;
+}
 
-        <div id="orders">
-          <p class="muted">
-            Chargement des commandes...
-          </p>
-        </div>
+document.getElementById("loginBtn").addEventListener("click", login);
+document.getElementById("forgotBtn").addEventListener("click", () => {
+  document.getElementById("loginForm").classList.add("hidden");
+  document.getElementById("forgotForm").classList.remove("hidden");
+  document.getElementById("resetEmail").value = document.getElementById("email").value.trim();
+  loginMessage.textContent = "";
+});
+document.getElementById("backLoginBtn").addEventListener("click", () => {
+  document.getElementById("forgotForm").classList.add("hidden");
+  document.getElementById("loginForm").classList.remove("hidden");
+  loginMessage.textContent = "";
+});
 
+document.getElementById("resetBtn").addEventListener("click", sendResetEmail);
+document.getElementById("updatePasswordBtn").addEventListener("click", updatePassword);
+document.getElementById("logoutBtn").addEventListener("click", logout);
+document.getElementById("search").addEventListener("input", renderOrders);
+
+async function login(){
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+  if(!email || !password){ showMessage(loginMessage,"Veuillez remplir les deux champs.","error"); return; }
+  showMessage(loginMessage,"Connexion en cours...");
+  const { error } = await client.auth.signInWithPassword({email,password});
+  if(error){ showMessage(loginMessage,"Connexion impossible : " + error.message,"error"); return; }
+  await showDashboard();
+}
+
+async function sendResetEmail(){
+  const email = document.getElementById("resetEmail").value.trim();
+  if(!email){ showMessage(loginMessage,"Entre ton adresse e-mail.","error"); return; }
+  showMessage(loginMessage,"Envoi du lien en cours...");
+  const { error } = await client.auth.resetPasswordForEmail(email,{ redirectTo: siteUrl() });
+  if(error){ showMessage(loginMessage,"Impossible d'envoyer le lien : " + error.message,"error"); return; }
+  showMessage(loginMessage,"✅ E-mail envoyé. Vérifie ta boîte de réception et ouvre le lien pour choisir un nouveau mot de passe.","success");
+}
+
+async function updatePassword(){
+  const password = document.getElementById("newPassword").value;
+  const confirm = document.getElementById("confirmPassword").value;
+  const box = document.getElementById("passwordMessage");
+  if(!password || !confirm){ showMessage(box,"Remplis les deux champs.","error"); return; }
+  if(password.length < 6){ showMessage(box,"Le mot de passe doit contenir au moins 6 caractères.","error"); return; }
+  if(password !== confirm){ showMessage(box,"Les deux mots de passe ne correspondent pas.","error"); return; }
+  const { error } = await client.auth.updateUser({password});
+  if(error){ showMessage(box,"Impossible de changer le mot de passe : " + error.message,"error"); return; }
+  showMessage(box,"✅ Mot de passe changé. Connexion au tableau de bord...","success");
+  setTimeout(async () => { document.getElementById("newPasswordCard").classList.add("hidden"); await showDashboard(); },700);
+}
+
+async function showDashboard(){
+  const { data:{user} } = await client.auth.getUser();
+  if(!user){ loginCard.classList.remove("hidden"); dashboard.classList.add("hidden"); return; }
+  loginCard.classList.add("hidden");
+  dashboard.classList.remove("hidden");
+  document.getElementById("userInfo").textContent = "Connecté : " + user.email;
+  await loadOrders();
+}
+
+async function loadOrders(){
+  ordersBox.innerHTML = "<p class='muted'>Chargement...</p>";
+  const { data,error } = await client.from("commandes").select("*").order("created_at",{ascending:false});
+  if(error){ ordersBox.innerHTML = "<p class='error'>Impossible de charger les commandes : " + escapeHtml(error.message) + "</p>"; return; }
+  allOrders = data || [];
+  renderOrders();
+}
+
+function renderOrders(){
+  const q = document.getElementById("search").value.trim().toLowerCase();
+  const filtered = allOrders.filter(o =>
+    String(o.reference||"").toLowerCase().includes(q) ||
+    String(o.nom||"").toLowerCase().includes(q) ||
+    String(o.service||"").toLowerCase().includes(q) ||
+    String(o.whatsapp||"").toLowerCase().includes(q) ||
+    String(o.email||"").toLowerCase().includes(q)
+  );
+  if(!filtered.length){ ordersBox.innerHTML = "<p class='muted'>Aucune commande trouvée.</p>"; return; }
+  ordersBox.innerHTML = filtered.map(o => `
+    <div class="order">
+      <div class="order-header"><span class="reference">${escapeHtml(o.reference||"Sans référence")}</span><span class="status">${escapeHtml(o.statut||"Nouvelle")}</span></div>
+      <div class="info-grid">
+        <div class="info"><strong>Service</strong>${escapeHtml(o.service||"")}</div>
+        <div class="info"><strong>Nom</strong>${escapeHtml(o.nom||"")}</div>
+        <div class="info"><strong>WhatsApp</strong>${escapeHtml(o.whatsapp||"")}</div>
+        <div class="info"><strong>E-mail</strong>${escapeHtml(o.email||"")}</div>
+        <div class="info"><strong>Date souhaitée</strong>${escapeHtml(o.date_souhaitee||"")}</div>
+        <div class="info"><strong>Paiement</strong>${escapeHtml(o.paiement||"En attente")}</div>
       </div>
-
-    </section>
-
-  </div>
-
-
-  <!-- SUPABASE -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-
-  <script>
-
-    /* =========================
-       CONFIGURATION SUPABASE
-    ========================= */
-
-    const client = window.supabase.createClient(
-
-      "https://wevngkvljcctclilbnim.supabase.co",
-
-      "sb_publishable_Hu_ehmjppmxnDCn-7wbeTA_oCcyrdCV"
-
-    );
-
-
-    /* =========================
-       VARIABLES
-    ========================= */
-
-    let allOrders = [];
-
-
-    const loginCard =
-      document.getElementById("loginCard");
-
-    const dashboard =
-      document.getElementById("dashboard");
-
-    const loginMessage =
-      document.getElementById("loginMessage");
-
-    const ordersBox =
-      document.getElementById("orders");
-
-
-    /* =========================
-       BOUTON CONNEXION
-    ========================= */
-
-    document
-      .getElementById("loginBtn")
-      .addEventListener("click", login);
-
-
-    async function login() {
-
-      const email =
-        document
-          .getElementById("email")
-          .value
-          .trim();
-
-      const password =
-        document
-          .getElementById("password")
-          .value;
-
-
-      if (!email || !password) {
-
-        loginMessage.className = "message error";
-
-        loginMessage.textContent =
-          "Veuillez remplir les deux champs.";
-
-        return;
-      }
-
-
-      loginMessage.className =
-        "message";
-
-      loginMessage.textContent =
-        "Connexion en cours...";
-
-
-      const { error } =
-        await client.auth.signInWithPassword({
-
-          email: email,
-
-          password: password
-
-        });
-
-
-      if (error) {
-
-        loginMessage.className =
-          "message error";
-
-        loginMessage.textContent =
-          "Connexion impossible : " +
-          error.message;
-
-        return;
-      }
-
-
-      await showDashboard();
-
-    }
-
-
-    /* =========================
-       AFFICHER LE DASHBOARD
-    ========================= */
-
-    async function showDashboard() {
-
-      const {
-        data: {
-          user
-        }
-      } = await client.auth.getUser();
-
-
-      if (!user) {
-
-        loginCard.classList.remove("hidden");
-
-        dashboard.classList.add("hidden");
-
-        return;
-      }
-
-
-      loginCard.classList.add("hidden");
-
-      dashboard.classList.remove("hidden");
-
-
-      document
-        .getElementById("userInfo")
-        .textContent =
-        "Connecté : " + user.email;
-
-
-      await loadOrders();
-
-    }
-
-
-    /* =========================
-       CHARGER LES COMMANDES
-    ========================= */
-
-    async function loadOrders() {
-
-      ordersBox.innerHTML =
-        "<p class='muted'>Chargement...</p>";
-
-
-      const {
-        data,
-        error
-      } = await client
-
-        .from("commandes")
-
-        .select("*")
-
-        .order(
-          "created_at",
-          {
-            ascending: false
-          }
-        );
-
-
-      if (error) {
-
-        ordersBox.innerHTML =
-          "<p class='error'>" +
-          "Impossible de charger les commandes : " +
-          escapeHtml(error.message) +
-          "</p>";
-
-        return;
-      }
-
-
-      allOrders = data || [];
-
-
-      renderOrders();
-
-    }
-
-
-    /* =========================
-       AFFICHER LES COMMANDES
-    ========================= */
-
-    function renderOrders() {
-
-      const query =
-        document
-          .getElementById("search")
-          .value
-          .trim()
-          .toLowerCase();
-
-
-      const filtered =
-        allOrders.filter(order =>
-
-          String(order.reference || "")
-            .toLowerCase()
-            .includes(query)
-
-          ||
-
-          String(order.nom || "")
-            .toLowerCase()
-            .includes(query)
-
-          ||
-
-          String(order.service || "")
-            .toLowerCase()
-            .includes(query)
-
-          ||
-
-          String(order.whatsapp || "")
-            .toLowerCase()
-            .includes(query)
-
-          ||
-
-          String(order.email || "")
-            .toLowerCase()
-            .includes(query)
-
-        );
-
-
-      if (!filtered.length) {
-
-        ordersBox.innerHTML =
-          "<p class='muted'>" +
-          "Aucune commande trouvée." +
-          "</p>";
-
-        return;
-      }
-
-
-      ordersBox.innerHTML =
-        filtered.map(order => `
-
-          <div class="order">
-
-            <div class="order-header">
-
-              <span class="reference">
-                ${escapeHtml(
-                  order.reference ||
-                  "Sans référence"
-                )}
-              </span>
-
-              <span class="status">
-                ${escapeHtml(
-                  order.statut ||
-                  "Nouvelle"
-                )}
-              </span>
-
-            </div>
-
-
-            <div class="info-grid">
-
-              <div class="info">
-
-                <strong>Service</strong>
-
-                ${escapeHtml(
-                  order.service || ""
-                )}
-
-              </div>
-
-
-              <div class="info">
-
-                <strong>Nom</strong>
-
-                ${escapeHtml(
-                  order.nom || ""
-                )}
-
-              </div>
-
-
-              <div class="info">
-
-                <strong>WhatsApp</strong>
-
-                ${escapeHtml(
-                  order.whatsapp || ""
-                )}
-
-              </div>
-
-
-              <div class="info">
-
-                <strong>E-mail</strong>
-
-                ${escapeHtml(
-                  order.email || ""
-                )}
-
-              </div>
-
-
-              <div class="info">
-
-                <strong>Date souhaitée</strong>
-
-                ${escapeHtml(
-                  order.date_souhaitee || ""
-                )}
-
-              </div>
-
-
-              <div class="info">
-
-                <strong>Paiement</strong>
-
-                ${escapeHtml(
-                  order.paiement ||
-                  "En attente"
-                )}
-
-              </div>
-
-            </div>
-
-
-            <div class="info" style="margin-top:12px">
-
-              <strong>Description du projet</strong>
-
-              ${escapeHtml(
-                order.description ||
-                "Aucune description"
-              )}
-
-            </div>
-
-
-            <p class="muted">
-
-              Commande reçue :
-              ${formatDate(order.created_at)}
-
-            </p>
-
-          </div>
-
-        `).join("");
-
-    }
-
-
-    /* =========================
-       RECHERCHE
-    ========================= */
-
-    document
-      .getElementById("search")
-      .addEventListener(
-        "input",
-        renderOrders
-      );
-
-
-    /* =========================
-       DECONNEXION
-    ========================= */
-
-    document
-      .getElementById("logoutBtn")
-      .addEventListener(
-        "click",
-        logout
-      );
-
-
-    async function logout() {
-
-      await client.auth.signOut();
-
-
-      dashboard
-        .classList
-        .add("hidden");
-
-
-      loginCard
-        .classList
-        .remove("hidden");
-
-
-      document
-        .getElementById("password")
-        .value = "";
-
-
-      loginMessage.className =
-        "message success";
-
-      loginMessage.textContent =
-        "Vous êtes déconnecté.";
-
-    }
-
-
-    /* =========================
-       DATE
-    ========================= */
-
-    function formatDate(value) {
-
-      if (!value) {
-        return "";
-      }
-
-
-      const date =
-        new Date(value);
-
-
-      if (
-        Number.isNaN(
-          date.getTime()
-        )
-      ) {
-
-        return value;
-
-      }
-
-
-      return date.toLocaleString(
-        "fr-FR"
-      );
-
-    }
-
-
-    /* =========================
-       SECURITE AFFICHAGE
-    ========================= */
-
-    function escapeHtml(value) {
-
-      return String(value ?? "")
-
-        .replaceAll(
-          "&",
-          "&amp;"
-        )
-
-        .replaceAll(
-          "<",
-          "&lt;"
-        )
-
-        .replaceAll(
-          ">",
-          "&gt;"
-        )
-
-        .replaceAll(
-          '"',
-          "&quot;"
-        )
-
-        .replaceAll(
-          "'",
-          "&#039;"
-        );
-
-    }
-
-
-    /* =========================
-       VERIFIER SESSION
-    ========================= */
-
-    client.auth
-      .getSession()
-      .then(() => {
-
-        showDashboard();
-
-      });
-
-  </script>
-
+      <div class="info" style="margin-top:12px"><strong>Description du projet</strong>${escapeHtml(o.description||"Aucune description")}</div>
+      <p class="muted">Commande reçue : ${formatDate(o.created_at)}</p>
+    </div>`).join("");
+}
+
+async function logout(){
+  await client.auth.signOut();
+  dashboard.classList.add("hidden");
+  loginCard.classList.remove("hidden");
+  document.getElementById("password").value = "";
+  showMessage(loginMessage,"Vous êtes déconnecté.","success");
+}
+
+function formatDate(value){
+  if(!value) return "";
+  const d = new Date(value);
+  if(Number.isNaN(d.getTime())) return value;
+  return d.toLocaleString("fr-FR");
+}
+
+function escapeHtml(value){
+  return String(value ?? "").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
+}
+
+client.auth.onAuthStateChange((event) => {
+  if(event === "PASSWORD_RECOVERY"){
+    loginCard.classList.add("hidden");
+    dashboard.classList.add("hidden");
+    document.getElementById("newPasswordCard").classList.remove("hidden");
+  }
+});
+
+client.auth.getSession().then(() => showDashboard());
+</script>
 </body>
 </html>
