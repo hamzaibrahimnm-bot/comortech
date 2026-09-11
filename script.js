@@ -226,8 +226,8 @@ async function envoyerCommande(e) {
 
                 headers: {
   "Content-Type": "application/json",
-  "apikey": SUPABASE_KEY,
-"Prefer": "return=representation"},
+  "apikey": SUPABASE_KEY
+},
 
                 body:
                     JSON.stringify(commande)
