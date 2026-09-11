@@ -1,757 +1,795 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+  <title>ComoreTech — Administration</title>
 
-    <title>Administration | ComoreTech</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-    <meta
-        name="description"
-        content="Espace d'administration de ComoreTech."
-    >
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #07111f;
+      color: #ffffff;
+    }
 
-    <link rel="stylesheet" href="style.css">
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: #0d1b2a;
+      border: 1px solid #21344a;
+      border-radius: 18px;
+      padding: 22px;
+      margin-bottom: 20px;
+    }
+
+    h1,
+    h2 {
+      margin-top: 0;
+    }
+
+    .description {
+      color: #9fb0c2;
+      line-height: 1.6;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 7px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid #30465e;
+      background: #081421;
+      color: white;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #18a66a;
+    }
+
+    button {
+      border: none;
+      border-radius: 10px;
+      padding: 13px 18px;
+      margin-top: 15px;
+      background: #18a66a;
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .logout {
+      background: #24384e;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .message {
+      margin-top: 15px;
+    }
+
+    .error {
+      color: #ff8585;
+    }
+
+    .success {
+      color: #6ee7b7;
+    }
+
+    .order {
+      background: #091624;
+      border: 1px solid #263d55;
+      border-radius: 14px;
+      padding: 17px;
+      margin-top: 15px;
+    }
+
+    .order-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .reference {
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 50px;
+      background: #183a31;
+      color: #6ee7b7;
+      font-size: 13px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .info {
+      background: #0d1b2a;
+      border-radius: 10px;
+      padding: 12px;
+    }
+
+    .info strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .muted {
+      color: #9fb0c2;
+    }
+
+    .search {
+      margin-top: 10px;
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        padding: 12px;
+      }
+
+      .card {
+        padding: 17px;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .top {
+        align-items: flex-start;
+      }
+
+      .logout {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
-    <!-- ================= HEADER ================= -->
+  <div class="container">
 
-    <header class="header">
+    <!-- CONNEXION -->
+    <section id="loginCard" class="card">
 
-        <div class="container nav-container">
+      <h1>ComoreTech Admin</h1>
 
-            <a href="index.html" class="logo">
+      <p class="description">
+        Connecte-toi avec ton compte administrateur pour consulter
+        les commandes reçues sur ComoreTech.
+      </p>
 
-                <img
-                    src="images/logo.jpg"
-                    alt="Logo ComoreTech"
-                >
+      <label for="email">Adresse e-mail</label>
 
-                <span>
-                    Comore<span>Tech</span>
-                </span>
+      <input
+        type="email"
+        id="email"
+        placeholder="Ton adresse e-mail"
+        autocomplete="username"
+      >
 
-            </a>
+      <label for="password">Mot de passe</label>
+
+      <input
+        type="password"
+        id="password"
+        placeholder="Ton mot de passe"
+        autocomplete="current-password"
+      >
+
+      <button id="loginBtn">
+        Se connecter
+      </button>
+
+      <div id="loginMessage" class="message"></div>
+
+    </section>
 
 
-            <nav class="nav-links">
+    <!-- TABLEAU DE BORD -->
+    <section id="dashboard" class="hidden">
 
-                <a href="index.html">
-                    Accueil
-                </a>
+      <div class="card">
 
-                <a href="services.html">
-                    Services
-                </a>
+        <div class="top">
 
-                <a href="apropos.html">
-                    À propos
-                </a>
+          <div>
+            <h1>Tableau de bord</h1>
 
-                <a href="contact.html">
-                    Contact
-                </a>
+            <p id="userInfo" class="muted"></p>
+          </div>
 
-                <a
-                    href="commande.html"
-                    class="nav-command"
-                >
-                    Commander
-                </a>
-
-            </nav>
+          <button id="logoutBtn" class="logout">
+            Se déconnecter
+          </button>
 
         </div>
 
-    </header>
+      </div>
 
 
-    <!-- ================= ADMIN ================= -->
+      <!-- COMMANDES -->
+      <div class="card">
 
-    <main class="admin-page">
+        <h2>📋 Commandes reçues</h2>
 
+        <p class="description">
+          Voici les demandes envoyées depuis le site ComoreTech.
+        </p>
 
-        <!-- HERO -->
+        <input
+          id="search"
+          class="search"
+          type="search"
+          placeholder="🔎 Rechercher une commande..."
+        >
 
-        <section class="page-hero">
-
-            <div class="container">
-
-                <span class="hero-badge">
-                    ADMINISTRATION
-                </span>
-
-                <h1>
-                    Tableau de
-                    <span>bord.</span>
-                </h1>
-
-                <p>
-                    Consulte et gère les demandes reçues
-                    depuis le formulaire ComoreTech.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= TABLEAU DE BORD ================= -->
-
-        <section class="admin-section">
-
-            <div class="container">
-
-
-                <!-- STATISTIQUES -->
-
-                <div class="admin-stats">
-
-
-                    <div class="admin-stat-card">
-
-                        <span>
-                            TOTAL
-                        </span>
-
-                        <strong id="adminTotal">
-                            0
-                        </strong>
-
-                        <small>
-                            commandes
-                        </small>
-
-                    </div>
-
-
-                    <div class="admin-stat-card">
-
-                        <span>
-                            NOUVELLES
-                        </span>
-
-                        <strong id="adminNouvelles">
-                            0
-                        </strong>
-
-                        <small>
-                            à traiter
-                        </small>
-
-                    </div>
-
-
-                    <div class="admin-stat-card">
-
-                        <span>
-                            EN COURS
-                        </span>
-
-                        <strong id="adminEnCours">
-                            0
-                        </strong>
-
-                        <small>
-                            projets
-                        </small>
-
-                    </div>
-
-
-                    <div class="admin-stat-card">
-
-                        <span>
-                            TERMINÉES
-                        </span>
-
-                        <strong id="adminTerminees">
-                            0
-                        </strong>
-
-                        <small>
-                            projets
-                        </small>
-
-                    </div>
-
-
-                </div>
-
-
-                <!-- BARRE D'ACTIONS -->
-
-                <div class="admin-toolbar">
-
-                    <div>
-
-                        <span class="section-label">
-                            COMMANDES
-                        </span>
-
-                        <h2>
-                            Demandes reçues
-                        </h2>
-
-                    </div>
-
-
-                    <div class="admin-actions">
-
-                        <button
-                            type="button"
-                            class="btn btn-primary"
-                            id="exportButton"
-                        >
-                            ↓ Exporter
-                        </button>
-
-                        <button
-                            type="button"
-                            class="btn btn-danger"
-                            id="deleteAllButton"
-                        >
-                            Tout supprimer
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-                <!-- RECHERCHE -->
-
-                <div class="admin-search">
-
-                    <input
-                        type="search"
-                        id="adminSearch"
-                        placeholder="Rechercher une commande..."
-                    >
-
-                </div>
-
-
-                <!-- LISTE -->
-
-                <div
-                    class="admin-orders"
-                    id="adminOrders"
-                >
-                </div>
-
-
-                <!-- AUCUNE COMMANDE -->
-
-                <div
-                    class="admin-empty"
-                    id="adminEmpty"
-                >
-
-                    <div class="admin-empty-icon">
-                        📭
-                    </div>
-
-                    <h3>
-                        Aucune commande
-                    </h3>
-
-                    <p>
-                        Les demandes envoyées depuis
-                        la page de commande apparaîtront ici.
-                    </p>
-
-                    <a
-                        href="commande.html"
-                        class="btn btn-primary"
-                    >
-                        Faire une demande test →
-                    </a>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- ================= FOOTER ================= -->
-
-    <footer class="footer">
-
-        <div class="container footer-grid">
-
-
-            <div class="footer-brand">
-
-                <a href="index.html" class="logo">
-
-                    <img
-                        src="images/logo.jpg"
-                        alt="Logo ComoreTech"
-                    >
-
-                    <span>
-                        Comore<span>Tech</span>
-                    </span>
-
-                </a>
-
-                <p>
-                    Des solutions numériques modernes
-                    pour donner vie à tes idées.
-                </p>
-
-            </div>
-
-
-            <div class="footer-column">
-
-                <h3>
-                    Navigation
-                </h3>
-
-                <a href="index.html">
-                    Accueil
-                </a>
-
-                <a href="services.html">
-                    Services
-                </a>
-
-                <a href="apropos.html">
-                    À propos
-                </a>
-
-                <a href="contact.html">
-                    Contact
-                </a>
-
-            </div>
-
-
-            <div class="footer-column">
-
-                <h3>
-                    Administration
-                </h3>
-
-                <a href="admin.html">
-                    Tableau de bord
-                </a>
-
-                <a href="commande.html">
-                    Nouvelle commande
-                </a>
-
-            </div>
-
-
-            <div class="footer-column">
-
-                <h3>
-                    ComoreTech
-                </h3>
-
-                <p>
-                    Créativité, technologie
-                    et solutions numériques.
-                </p>
-
-                <a
-                    href="services.html"
-                    class="btn btn-primary"
-                >
-                    Nos services
-                </a>
-
-            </div>
-
-
+        <div id="orders">
+          <p class="muted">
+            Chargement des commandes...
+          </p>
         </div>
 
+      </div>
 
-        <div class="footer-bottom">
+    </section>
 
-            <div class="container">
+  </div>
 
-                <p>
-                    © 2026 ComoreTech — Tous droits réservés.
-                </p>
 
-            </div>
+  <!-- SUPABASE -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-        </div>
 
-    </footer>
+  <script>
 
+    /* =========================
+       CONFIGURATION SUPABASE
+    ========================= */
 
-    <!-- ================= SCRIPT ADMIN ================= -->
+    const client = window.supabase.createClient(
 
-    <script src="script.js"></script>
+      "https://wevngkvljcctclilbnim.supabase.co",
 
+      "sb_publishable_Hu_ehmjppmxnDCn-7wbeTA_oCcyrdCV"
 
-    <script>
+    );
 
-        document.addEventListener("DOMContentLoaded", () => {
 
-            const ordersContainer =
-                document.getElementById("adminOrders");
+    /* =========================
+       VARIABLES
+    ========================= */
 
-            const emptyContainer =
-                document.getElementById("adminEmpty");
+    let allOrders = [];
 
-            const searchInput =
-                document.getElementById("adminSearch");
 
+    const loginCard =
+      document.getElementById("loginCard");
 
-            function afficherCommandesAdmin() {
+    const dashboard =
+      document.getElementById("dashboard");
 
-                const commandes =
-                    recupererCommandes();
+    const loginMessage =
+      document.getElementById("loginMessage");
 
-                const recherche =
-                    searchInput.value
-                        .toLowerCase()
-                        .trim();
+    const ordersBox =
+      document.getElementById("orders");
 
 
-                let commandesFiltrees =
-                    commandes.filter(commande => {
+    /* =========================
+       BOUTON CONNEXION
+    ========================= */
 
-                        const texte = `
-                            ${commande.id}
-                            ${commande.service}
-                            ${commande.nom}
-                            ${commande.whatsapp}
-                            ${commande.email}
-                            ${commande.description}
-                            ${commande.statut}
-                        `.toLowerCase();
+    document
+      .getElementById("loginBtn")
+      .addEventListener("click", login);
 
-                        return texte.includes(recherche);
 
-                    });
+    async function login() {
 
+      const email =
+        document
+          .getElementById("email")
+          .value
+          .trim();
 
-                ordersContainer.innerHTML = "";
+      const password =
+        document
+          .getElementById("password")
+          .value;
 
 
-                if (commandesFiltrees.length === 0) {
+      if (!email || !password) {
 
-                    emptyContainer.style.display = "block";
+        loginMessage.className = "message error";
 
-                    mettreAJourStatistiques();
+        loginMessage.textContent =
+          "Veuillez remplir les deux champs.";
 
-                    return;
+        return;
+      }
 
-                }
 
+      loginMessage.className =
+        "message";
 
-                emptyContainer.style.display = "none";
+      loginMessage.textContent =
+        "Connexion en cours...";
 
 
-                commandesFiltrees
-                    .slice()
-                    .reverse()
-                    .forEach(commande => {
+      const { error } =
+        await client.auth.signInWithPassword({
 
-                        const article =
-                            document.createElement("article");
+          email: email,
 
-                        article.className =
-                            "admin-order-card";
-
-
-                        const statutClass =
-                            commande.statut
-                                .toLowerCase()
-                                .replaceAll(" ", "-");
-
-
-                        article.innerHTML = `
-
-                            <div class="order-top">
-
-                                <div>
-
-                                    <span class="order-id">
-                                        ${echapperHTML(commande.id)}
-                                    </span>
-
-                                    <h3>
-                                        ${echapperHTML(commande.nom)}
-                                    </h3>
-
-                                </div>
-
-                                <span class="order-status ${statutClass}">
-                                    ${echapperHTML(commande.statut)}
-                                </span>
-
-                            </div>
-
-
-                            <div class="order-details">
-
-                                <div>
-                                    <strong>Service</strong>
-                                    <span>
-                                        ${echapperHTML(commande.service)}
-                                    </span>
-                                </div>
-
-                                <div>
-                                    <strong>WhatsApp</strong>
-                                    <span>
-                                        ${echapperHTML(commande.whatsapp)}
-                                    </span>
-                                </div>
-
-                                <div>
-                                    <strong>E-mail</strong>
-                                    <span>
-                                        ${echapperHTML(commande.email)}
-                                    </span>
-                                </div>
-
-                                <div>
-                                    <strong>Date souhaitée</strong>
-                                    <span>
-                                        ${formaterDate(commande.date)}
-                                    </span>
-                                </div>
-
-                            </div>
-
-
-                            <div class="order-description">
-
-                                <strong>
-                                    Description
-                                </strong>
-
-                                <p>
-                                    ${echapperHTML(commande.description)}
-                                </p>
-
-                            </div>
-
-
-                            <div class="order-bottom">
-
-                                <small>
-                                    Reçue le
-                                    ${echapperHTML(commande.createdAt)}
-                                </small>
-
-
-                                <div class="order-actions">
-
-                                    <select
-                                        class="status-select"
-                                        data-id="${echapperHTML(commande.id)}"
-                                    >
-
-                                        <option
-                                            value="Nouvelle"
-                                            ${commande.statut === "Nouvelle" ? "selected" : ""}
-                                        >
-                                            Nouvelle
-                                        </option>
-
-                                        <option
-                                            value="En cours"
-                                            ${commande.statut === "En cours" ? "selected" : ""}
-                                        >
-                                            En cours
-                                        </option>
-
-                                        <option
-                                            value="Terminée"
-                                            ${commande.statut === "Terminée" ? "selected" : ""}
-                                        >
-                                            Terminée
-                                        </option>
-
-                                    </select>
-
-
-                                    <button
-                                        type="button"
-                                        class="btn btn-small btn-copy"
-                                        data-copy="${echapperHTML(commande.whatsapp)}"
-                                    >
-                                        Copier
-                                    </button>
-
-
-                                    <button
-                                        type="button"
-                                        class="btn btn-small btn-danger btn-delete"
-                                        data-id="${echapperHTML(commande.id)}"
-                                    >
-                                        Supprimer
-                                    </button>
-
-                                </div>
-
-                            </div>
-
-                        `;
-
-
-                        ordersContainer.appendChild(article);
-
-                    });
-
-
-                ajouterEvenementsCommandes();
-
-                mettreAJourStatistiques();
-
-            }
-
-
-            function mettreAJourStatistiques() {
-
-                const stats =
-                    obtenirStatistiques();
-
-
-                document.getElementById("adminTotal")
-                    .textContent = stats.total;
-
-                document.getElementById("adminNouvelles")
-                    .textContent = stats.nouvelles;
-
-                document.getElementById("adminEnCours")
-                    .textContent = stats.enCours;
-
-                document.getElementById("adminTerminees")
-                    .textContent = stats.terminees;
-
-            }
-
-
-            function ajouterEvenementsCommandes() {
-
-                document
-                    .querySelectorAll(".status-select")
-                    .forEach(select => {
-
-                        select.addEventListener(
-                            "change",
-                            event => {
-
-                                const id =
-                                    event.target.dataset.id;
-
-                                const statut =
-                                    event.target.value;
-
-                                modifierStatut(
-                                    id,
-                                    statut
-                                );
-
-                            }
-                        );
-
-                    });
-
-
-                document
-                    .querySelectorAll(".btn-delete")
-                    .forEach(button => {
-
-                        button.addEventListener(
-                            "click",
-                            () => {
-
-                                const id =
-                                    button.dataset.id;
-
-                                const confirmation =
-                                    confirm(
-                                        "Supprimer cette commande ?"
-                                    );
-
-                                if (!confirmation) {
-                                    return;
-                                }
-
-                                supprimerCommande(id);
-
-                            }
-                        );
-
-                    });
-
-
-                document
-                    .querySelectorAll(".btn-copy")
-                    .forEach(button => {
-
-                        button.addEventListener(
-                            "click",
-                            () => {
-
-                                copierTexte(
-                                    button.dataset.copy
-                                );
-
-                            }
-                        );
-
-                    });
-
-            }
-
-
-            searchInput.addEventListener(
-                "input",
-                afficherCommandesAdmin
-            );
-
-
-            document
-                .getElementById("exportButton")
-                .addEventListener(
-                    "click",
-                    exporterCommandes
-                );
-
-
-            document
-                .getElementById("deleteAllButton")
-                .addEventListener(
-                    "click",
-                    supprimerToutesLesCommandes
-                );
-
-
-            window.afficherCommandesAdmin =
-                afficherCommandesAdmin;
-
-
-            afficherCommandesAdmin();
+          password: password
 
         });
 
-    </script>
+
+      if (error) {
+
+        loginMessage.className =
+          "message error";
+
+        loginMessage.textContent =
+          "Connexion impossible : " +
+          error.message;
+
+        return;
+      }
+
+
+      await showDashboard();
+
+    }
+
+
+    /* =========================
+       AFFICHER LE DASHBOARD
+    ========================= */
+
+    async function showDashboard() {
+
+      const {
+        data: {
+          user
+        }
+      } = await client.auth.getUser();
+
+
+      if (!user) {
+
+        loginCard.classList.remove("hidden");
+
+        dashboard.classList.add("hidden");
+
+        return;
+      }
+
+
+      loginCard.classList.add("hidden");
+
+      dashboard.classList.remove("hidden");
+
+
+      document
+        .getElementById("userInfo")
+        .textContent =
+        "Connecté : " + user.email;
+
+
+      await loadOrders();
+
+    }
+
+
+    /* =========================
+       CHARGER LES COMMANDES
+    ========================= */
+
+    async function loadOrders() {
+
+      ordersBox.innerHTML =
+        "<p class='muted'>Chargement...</p>";
+
+
+      const {
+        data,
+        error
+      } = await client
+
+        .from("commandes")
+
+        .select("*")
+
+        .order(
+          "created_at",
+          {
+            ascending: false
+          }
+        );
+
+
+      if (error) {
+
+        ordersBox.innerHTML =
+          "<p class='error'>" +
+          "Impossible de charger les commandes : " +
+          escapeHtml(error.message) +
+          "</p>";
+
+        return;
+      }
+
+
+      allOrders = data || [];
+
+
+      renderOrders();
+
+    }
+
+
+    /* =========================
+       AFFICHER LES COMMANDES
+    ========================= */
+
+    function renderOrders() {
+
+      const query =
+        document
+          .getElementById("search")
+          .value
+          .trim()
+          .toLowerCase();
+
+
+      const filtered =
+        allOrders.filter(order =>
+
+          String(order.reference || "")
+            .toLowerCase()
+            .includes(query)
+
+          ||
+
+          String(order.nom || "")
+            .toLowerCase()
+            .includes(query)
+
+          ||
+
+          String(order.service || "")
+            .toLowerCase()
+            .includes(query)
+
+          ||
+
+          String(order.whatsapp || "")
+            .toLowerCase()
+            .includes(query)
+
+          ||
+
+          String(order.email || "")
+            .toLowerCase()
+            .includes(query)
+
+        );
+
+
+      if (!filtered.length) {
+
+        ordersBox.innerHTML =
+          "<p class='muted'>" +
+          "Aucune commande trouvée." +
+          "</p>";
+
+        return;
+      }
+
+
+      ordersBox.innerHTML =
+        filtered.map(order => `
+
+          <div class="order">
+
+            <div class="order-header">
+
+              <span class="reference">
+                ${escapeHtml(
+                  order.reference ||
+                  "Sans référence"
+                )}
+              </span>
+
+              <span class="status">
+                ${escapeHtml(
+                  order.statut ||
+                  "Nouvelle"
+                )}
+              </span>
+
+            </div>
+
+
+            <div class="info-grid">
+
+              <div class="info">
+
+                <strong>Service</strong>
+
+                ${escapeHtml(
+                  order.service || ""
+                )}
+
+              </div>
+
+
+              <div class="info">
+
+                <strong>Nom</strong>
+
+                ${escapeHtml(
+                  order.nom || ""
+                )}
+
+              </div>
+
+
+              <div class="info">
+
+                <strong>WhatsApp</strong>
+
+                ${escapeHtml(
+                  order.whatsapp || ""
+                )}
+
+              </div>
+
+
+              <div class="info">
+
+                <strong>E-mail</strong>
+
+                ${escapeHtml(
+                  order.email || ""
+                )}
+
+              </div>
+
+
+              <div class="info">
+
+                <strong>Date souhaitée</strong>
+
+                ${escapeHtml(
+                  order.date_souhaitee || ""
+                )}
+
+              </div>
+
+
+              <div class="info">
+
+                <strong>Paiement</strong>
+
+                ${escapeHtml(
+                  order.paiement ||
+                  "En attente"
+                )}
+
+              </div>
+
+            </div>
+
+
+            <div class="info" style="margin-top:12px">
+
+              <strong>Description du projet</strong>
+
+              ${escapeHtml(
+                order.description ||
+                "Aucune description"
+              )}
+
+            </div>
+
+
+            <p class="muted">
+
+              Commande reçue :
+              ${formatDate(order.created_at)}
+
+            </p>
+
+          </div>
+
+        `).join("");
+
+    }
+
+
+    /* =========================
+       RECHERCHE
+    ========================= */
+
+    document
+      .getElementById("search")
+      .addEventListener(
+        "input",
+        renderOrders
+      );
+
+
+    /* =========================
+       DECONNEXION
+    ========================= */
+
+    document
+      .getElementById("logoutBtn")
+      .addEventListener(
+        "click",
+        logout
+      );
+
+
+    async function logout() {
+
+      await client.auth.signOut();
+
+
+      dashboard
+        .classList
+        .add("hidden");
+
+
+      loginCard
+        .classList
+        .remove("hidden");
+
+
+      document
+        .getElementById("password")
+        .value = "";
+
+
+      loginMessage.className =
+        "message success";
+
+      loginMessage.textContent =
+        "Vous êtes déconnecté.";
+
+    }
+
+
+    /* =========================
+       DATE
+    ========================= */
+
+    function formatDate(value) {
+
+      if (!value) {
+        return "";
+      }
+
+
+      const date =
+        new Date(value);
+
+
+      if (
+        Number.isNaN(
+          date.getTime()
+        )
+      ) {
+
+        return value;
+
+      }
+
+
+      return date.toLocaleString(
+        "fr-FR"
+      );
+
+    }
+
+
+    /* =========================
+       SECURITE AFFICHAGE
+    ========================= */
+
+    function escapeHtml(value) {
+
+      return String(value ?? "")
+
+        .replaceAll(
+          "&",
+          "&amp;"
+        )
+
+        .replaceAll(
+          "<",
+          "&lt;"
+        )
+
+        .replaceAll(
+          ">",
+          "&gt;"
+        )
+
+        .replaceAll(
+          '"',
+          "&quot;"
+        )
+
+        .replaceAll(
+          "'",
+          "&#039;"
+        );
+
+    }
+
+
+    /* =========================
+       VERIFIER SESSION
+    ========================= */
+
+    client.auth
+      .getSession()
+      .then(() => {
+
+        showDashboard();
+
+      });
+
+  </script>
 
 </body>
-
 </html>
